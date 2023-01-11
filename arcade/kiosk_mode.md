@@ -18,15 +18,76 @@ autologin-user=kiosk-user
 user-session=openbox
 #autologin-user-timeout=0
 EOF
+```
 
-
+# create autostart
+```sh
 # CREATE AUTOSTART SCRIPT
 sudo mkdir ~/.config/openbox
 
 nano ~/.config/openbox/autostart
+```
 
+# fill in autostart
+```sh
 # ADD THIS TO THE FILE:
-feh --bg-scale /path/to/your/background/image.jpg
+# Note: you NEEDan '&' after each command
 
-unclutter -idle 0
+feh --bg-scale /path/to/your/background/image.jpg &
+
+unclutter -idle 0 &
+
+chromium --kiosk ~/store.html
+```
+
+# create store.html
+```sh
+
+nano ~/store.html
+
+```
+
+```html
+<html>
+<body>
+<iframe src='http://rnbjwtzwekbkqgg4vtox5vpp5t3vhx4o2xatknie76bfyv5ecewpm7ad.local/apps/3AtHKALrXrjx2DWejNyCByEL9C2a/pos' style='max-width: 100%; border: 0;'></iframe>
+</body>
+</html>
+```
+
+
+actually this:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <style type="text/css">
+            body, html
+            {
+                margin: 0; padding: 0; height: 100%; overflow: hidden;
+            }
+        </style>
+
+  </head>
+  <body>
+    <iframe src='https://rnbjwtzwekbkqgg4vtox5vpp5t3vhx4o2xatknie76bfyv5ecewpm7ad.local/apps/3AtHKALrXrjx2DWejNyCByEL9C2a/pos'
+    style="
+      position: fixed;
+      top: 0px;
+      bottom: 0px;
+      right: 0px;
+      width: 100%;
+      border: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      z-index: 999999;
+      height: 100%;">
+      </iframe>
+  </body>
+</html>
+
 ```
