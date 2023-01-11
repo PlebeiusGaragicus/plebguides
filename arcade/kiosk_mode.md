@@ -8,13 +8,7 @@ useradd -m kiosk-user
 apt-get update
 
 # INSTALL WHAT YOU'LL NEED
-apt-get install \
-    sudo \
-    xorg \
-    chromium \
-    openbox \
-    lightdm \
-    feh
+apt-get install sudo xorg chromium openbox lightdm feh unclutter --yes
 
 # ENABLE AUTO LOGIN
 # sudo /usr/lib/lightdm/lightdm-set-defaults --autologin "kiosk-user"
@@ -27,9 +21,12 @@ EOF
 
 
 # CREATE AUTOSTART SCRIPT
+sudo mkdir ~/.config/openbox
+
 nano ~/.config/openbox/autostart
 
 # ADD THIS TO THE FILE:
 feh --bg-scale /path/to/your/background/image.jpg
 
+unclutter -idle 0
 ```
