@@ -41,8 +41,8 @@ wget https://github.com/PlebeiusGaragicus/PlebGuides/raw/main/assets/wp3.jpg
 
 ```sh
 sudo apt update
-sudo apt-get install flatpak
 # TODO - IS THIS NEEDED...? AM I EVEN RUNNING GNOME?  WHAT IS MY SOFTWARE THE DEBIAN DEFAULTS TO????
+sudo apt-get install flatpak
 sudo apt-get install gnome-software-plugin-flatpak
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo flatpak install flathub com.snes9x.Snes9x
@@ -62,7 +62,7 @@ which flapack
 flatpak run com.snes9x.Snes9x <ROM>
 ```
 
-## enable the "kiosk" mode
+# enable the "kiosk" mode
 
 ```sh
 # ensure we have useradd
