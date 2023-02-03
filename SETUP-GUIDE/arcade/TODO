@@ -1,0 +1,42 @@
+Create 'ps checker' app that will restart apps, if needed
+
+Create a webserver app that is accessible on local network OR hosts its own network 'arcade.local'
+
+Make demo game called Catch Mel's mom
+
+Create game chooser python app
+ - use PIL in order to learn the library and create a basic app
+ - create stub folder format
+ - allow uploading of ROMS
+
+Better joystick
+ - locktight to prevent unscrewing
+ - more precise holes for buttons
+ - standard layout (6 buttons)
+ - Try the other type of joystick / buttons
+
+Remove game save files / all state files upon launch
+
+Add buttons:
+ - EXIT button - to go to game selection
+ - rewind button (function plus rewind)
+
+Volume control
+ - DIY soldering, etc (FIND THAT GEEK PUB VIDEO)
+
+Try a glue-gun / speaker grill solution
+
+Try vent hole patterns
+ - design and print out
+ - ...or some easy method to measure and mark
+
+8 o-clock roll call "surprise"
+ - jurrasic park ()
+
+Prevent (ugly) DELL BIOS screen and debian grub loader
+
+Decide on a cool background to use - use AI to generate one
+
+research ```sed``` and ```tee``` for script installs of reboot alias, etc, etc...
+
+Figure out how to use route for t-moulding

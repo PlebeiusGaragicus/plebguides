@@ -1,0 +1,26 @@
+WIFI AP WRITE-UP
+
+(move this to github)
+
+
+flash the drive
+
+touch ssh
+wpa_supplicant.conf
+
+power on
+
+find IP address with eero app
+
+SSH
+
+change: (password,  hostname, …) —> write these down on paper
+
+sudo apt update -y
+sudo apt upgrade -y
+sudo reboot
+
+https://hackersgrid.com/2017/09/ultralong-ranged-wifi-station.html/amp
+
+
+

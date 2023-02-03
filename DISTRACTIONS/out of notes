@@ -1,0 +1,28 @@
+This is both NOT the productive work I intend to do... AND the final organization that I wish to change basic habits
+
+
+Python ArjanCodes
+cohesion and coupling
+
+
+
+REDUNDENCY
+Create a backup system in case of likely catastrophic fail - backup steps are OK
+Make a library of python tutorials with documentation lookup...
+
+SETUP
+Headless install
+
+PERSISTANCE
+Crontab -e - will restart when fails
+matchbox keyboard… shell script (keepalive.sh)
+
+MAINTENANCE / EXFIL DATA
+Linux cheat sheet commands - reference page
+Log every 15 minutes
+- “Are you still there?” time=2021.04.10-13:15 temp=34 uptime=1248
+
+
+
+
+

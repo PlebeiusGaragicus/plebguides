@@ -1,0 +1,91 @@
+# hardware
+https://www.waveshare.com/sim7600a-h-4g-hat.htm
+
+
+# t mobile APN
+Name: T-Mobile
+APN
+fast.t-mobile.com
+
+
+# guide
+
+https://www.jeffgeerling.com/blog/2022/using-4g-lte-wireless-modems-on-raspberry-pi
+
+
+# command list
+
+```sh
+
+sudo qmicli -d /dev/cdc-wdm0 --dms-get-operating-mode
+
+# this has been giving me errors... WTF!!!?????
+sudo qmicli -d /dev/cdc-wdm0 --wda-get-data-format
+
+sudo qmicli -p -d /dev/cdc-wdm0 --device-open-net='net-raw-ip|net-no-qos-header' --wds-start-network="apn='fast.t-mobile.com',ip-type=4" --client-no-release-cid
+
+
+```
+
+
+# https://techship.com/faq/how-to-step-by-step-set-up-a-data-connection-over-qmi-interface-using-qmicli-and-in-kernel-driver-qmi-wwan-in-linux/
+
+Get name of interface:
+```
+sudo qmicli --device=/dev/cdc-wdm0 --device-open-proxy --get-wwan-iface
+```
+
+
+
+Check what IP-mode the host system is configured for:
+```
+sudo qmicli --device=/dev/cdc-wdm0 --get-expected-data-format
+# 802-3 on reboot
+# raw_ip once setup after boot
+```
+
+Check what IP-mode the cellular module require:
+```
+# didn't work for me: error: couldn't create client for the 'wda' service: QMI protocol error (3): 'Internal'
+sudo qmicli --device=/dev/cdc-wdm0 --device-open-proxy --wda-get-data-format
+```
+
+
+to change qmi_wwan driver to use Raw-IP.
+- Disable the network interfaces exposed by the cellular module:
+- Trigger the Raw-IP support:
+- Enable the network interfaces again:
+
+```sh
+sudo ip link set dev wwan0 down
+echo 'Y' | sudo tee /sys/class/net/wwan0/qmi/raw_ip
+sudo ip link set dev wwan0 up
+
+sudo qmicli --device=/dev/cdc-wdm0 --device-open-proxy --wds-start-network="ip-type=4,apn=fast.t-mobile.com" --client-no-release-cid
+
+sudo udhcpc -q -f -n -i wwan0
+
+
+
+
+# Request module manufacturer:
+sudo qmicli --device=/dev/cdc-wdm0 --device-open-proxy --dms-get-manufacturer
+
+# Get module model:
+sudo qmicli --device=/dev/cdc-wdm0 --device-open-proxy --dms-get-model
+
+# Get firmware version:
+sudo qmicli --device=/dev/cdc-wdm0 --device-open-proxy --dms-get-revision
+
+# Get module IDs (IMEI etc.):
+sudo qmicli --device=/dev/cdc-wdm0 --device-open-proxy --dms-get-ids
+
+# Get SIM card status:
+sudo qmicli --device=/dev/cdc-wdm0 --device-open-proxy --uim-get-card-status
+
+# Recent cellular modules like Sierra Wireless EM7565 require at least libqmi V1.20. Check version with command:
+sudo qmicli --version
+
+```
+
+
