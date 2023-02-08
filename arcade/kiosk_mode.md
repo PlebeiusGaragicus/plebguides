@@ -53,9 +53,53 @@ sudo nano ~/.config/openbox/autostart
 ```sh
 # CONTENTS:
 # Note: you NEED a '&' after each command
+
+# disable screensaver
+xset dpms 0 0 0 && xset s noblank  && xset s off &
+
+# set background
 feh --bg-scale ~/wallpaper.jpg &
 
+# hide mouse cursor
 unclutter -idle 2 &
 
 flatpak run com.snes9x.Snes9x sf2.zip &
+```
+
+# INSTALL BOOT SPLASH SCREEN
+
+# THIS DOES NOT WORK YET!!!
+
+ - https://www.freedesktop.org/wiki/Software/Plymouth/
+ - https://wiki.debian.org/plymouth
+
+```sh
+sudo apt-get install plymouth plymouth-themes --yes
+
+# to list themes:
+plymouth-set-default-theme -l
+# to set theme:
+sudo plymouth-set-default-theme -R <THEME>
+```
+
+
+
+# DISABLE GRUB MENU
+```sh
+sudo nano /etc/default/grub
+```
+
+## grub contents:
+```sh
+# CONTENTS:
+...
+GRUB_TIMEOUT=0
+GRUB_TIMEOUT_STYLE=hidden
+...
+GRUB_CMDLINE_LINUX_DEFAULT="splash quiet persistent"
+...
+# UNCOMMENT this line and set to your screen resolution
+# you can find this by running 'xdpyinfo' in a terminal, eg:
+# DISPLAY=:0 xdpyinfo | awk '/dimensions/{print $2}'
+GRUB_GFXMODE=1920x1080
 ```
