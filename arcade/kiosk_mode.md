@@ -63,7 +63,7 @@ feh --bg-scale ~/wallpaper.jpg &
 # hide mouse cursor
 unclutter -idle 2 &
 
-flatpak run com.snes9x.Snes9x sf2.zip &
+flatpak run com.snes9x.Snes9x ~/roms/sf2.zip &
 ```
 
 # INSTALL BOOT SPLASH SCREEN
@@ -108,4 +108,3 @@ GRUB_GFXMODE=1920x1080
 # TODO: firmware problems...
 
  - https://wiki.debian.org/AtiHowTo
- 
