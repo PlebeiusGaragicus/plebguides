@@ -103,3 +103,9 @@ GRUB_CMDLINE_LINUX_DEFAULT="splash quiet persistent"
 # DISPLAY=:0 xdpyinfo | awk '/dimensions/{print $2}'
 GRUB_GFXMODE=1920x1080
 ```
+
+
+# TODO: firmware problems...
+
+ - https://wiki.debian.org/AtiHowTo
+ 
